@@ -1,0 +1,39 @@
+# Local credentials (keep templates)
+.env
+.env.*
+!.env.example
+!.env.test.example
+database.ini
+
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Local data and logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Editor and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# C++ generated files
+build/
+*.o
+*.obj
+*.exe
+*.dll
+/deps/
+/reports/
+/test.zip
