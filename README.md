@@ -43,3 +43,8 @@ backend\.venv\Scripts\python.exe -m pip install ruff==0.17.0
 backend\.venv\Scripts\python.exe -m ruff check backend backend_tests scripts
 backend\.venv\Scripts\python.exe -m ruff format --check backend backend_tests scripts
 
+## Запуск Python тестов через Docker
+
+docker compose up --build --abort-on-container-exit --exit-code-from tests
+
+

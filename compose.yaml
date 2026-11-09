@@ -1,0 +1,36 @@
+name: vkr-qa-tests
+
+services:
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker_test_password
+      POSTGRES_DB: postgres
+    volumes:
+      - test-db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+  tests:
+    build:
+      context: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      TEST_DB_HOST: postgres
+      TEST_DB_PORT: "5432"
+      TEST_DB_NAME: vkr_test
+      TEST_DB_USER: postgres
+      TEST_DB_PASSWORD: docker_test_password
+      POSTGRES_BIN_PATH: /usr/lib/postgresql/18/bin
+    volumes:
+      - ./reports:/app/reports
+
+volumes:
+  test-db:

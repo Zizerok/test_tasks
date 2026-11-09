@@ -1,0 +1,17 @@
+**
+!Dockerfile
+!.dockerignore
+!pytest.ini
+!backend/
+!backend/app.py
+!backend/requirements.txt
+!backend/requirements-test.txt
+!backend_tests/
+!backend_tests/**
+!scripts/
+!scripts/prepare_test_db.py
+!scripts/run_docker_tests.py
+**/__pycache__/
+**/.pytest_cache/
+**/*.pyc
+**/.env*
